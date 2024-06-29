@@ -26,67 +26,74 @@ function Card(props) {
   return (
     <>
       <div
-        className="card_container"
-        onMouseEnter={() => setCardHovered(true)}
-        onMouseLeave={() => setCardHovered(false)}
+        className="card"
         style={{
-          border: cardHovered
-            ? `0.25rem solid ${randomColor.border}`
-            : "0.125rem solid #f1f1f1",
-          margin: cardHovered
-            ? "0"
-            : "0.125rem",
+          padding: "0.25rem",
         }}
       >
-        <div className="pfp_image_cont">
-          <img className="pfp_image" src={pfpImage}></img>
-        </div>
-        <div className="empty_container"></div>
-        <div className="content_container">
-          <div className="content_left">
-            <div className="name_container">
-              <div className="name_text">{name}</div>
-              <div className="designation_text">{designation}</div>
-            </div>
-            <div className="icon_container">
-              <div
-                onMouseEnter={() => setHoverIcon1(true)}
-                onMouseLeave={() => setHoverIcon1(false)}
-              >
-                {hoverIcon1 ? <MicrosoftSvgHovered /> : <MicrosoftSvg />}
-              </div>
-              <div
-                onMouseEnter={() => setHoverIcon2(true)}
-                onMouseLeave={() => setHoverIcon2(false)}
-              >
-                {hoverIcon2 ? <MetaSvgHovered /> : <MetaSvg />}
-              </div>
-            </div>
-            <div
-              className="portfolio_container"
-              onMouseEnter={() => setPortHovered(true)}
-              onMouseLeave={() => setPortHovered(false)}
-              style={{
-                background: randomColor.bg,
-                boxShadow: `0${portHovered ? "3px" : "2px"} 0 0 ${
-                  randomColor.shadow
-                }`,
-                border: portHovered && `1px solid ${randomColor.borderPort}`,
-                borderRadius: "0.375rem",
-              }}
-            >
-              <ArrowRight portHovered={portHovered} />
-              <div className="portfolio_text">Visit Portfolio</div>
-            </div>
+        <div
+          className="card_container"
+          onMouseEnter={() => setCardHovered(true)}
+          onMouseLeave={() => setCardHovered(false)}
+          style={{
+            border: cardHovered
+              ? `0.25rem solid ${randomColor.border}`
+              : "0.125rem solid #f1f1f1",
+            margin: cardHovered ? 0 : "0.125rem",
+            transition: 'border 0.01s ease-in-out, margin 0.01s ease-in-out '
+ 
+
+          }}
+        >
+          <div className="pfp_image_cont">
+            <img className="pfp_image" src={pfpImage}></img>
           </div>
-          <div className="content_right">
-            <div className="content_right_top">
-              <div className="content_right_text1">{department}</div>
-              <div className="content_right_text2">‘{batch}</div>
+          <div className="empty_container"></div>
+          <div className="content_container">
+            <div className="content_left" >
+              <div className="name_container">
+                <div className="name_text">{name}</div>
+                <div className="designation_text">{designation}</div>
+              </div>
+              <div className="icon_container">
+                <div
+                  onMouseEnter={() => setHoverIcon1(true)}
+                  onMouseLeave={() => setHoverIcon1(false)}
+                >
+                  {hoverIcon1 ? <MicrosoftSvgHovered /> : <MicrosoftSvg />}
+                </div>
+                <div
+                  onMouseEnter={() => setHoverIcon2(true)}
+                  onMouseLeave={() => setHoverIcon2(false)}
+                >
+                  {hoverIcon2 ? <MetaSvgHovered /> : <MetaSvg />}
+                </div>
+              </div>
+              <div
+                className="portfolio_container"
+                onMouseEnter={() => setPortHovered(true)}
+                onMouseLeave={() => setPortHovered(false)}
+                style={{
+                  background: randomColor.bg,
+                  boxShadow: `0 ${portHovered ? "3px" : "2px"} 0 0 ${
+                    randomColor.shadow
+                  }`,
+                  border: portHovered && `1px solid ${randomColor.borderPort}`,
+                  borderRadius: "0.375rem",
+                }}
+              >
+                <ArrowRight portHovered={portHovered} />
+                <div className="portfolio_text">Visit Portfolio</div>
+              </div>
             </div>
-            <div className="content_right_bot">
-              {/* Logo here  */}
-              {/* <div className="fevicon">
+            <div className="content_right">
+              <div className="content_right_top">
+                <div className="content_right_text1">{department}</div>
+                <div className="content_right_text2">‘{batch}</div>
+              </div>
+              <div className="content_right_bot">
+                {/* Logo here  */}
+                {/* <div className="fevicon">
                 <div className="fevicon_rectangle"></div>
                 <div className="outer_group">
                   <div className="inner_group">
@@ -95,6 +102,7 @@ function Card(props) {
                   </div>
                 </div>
               </div> */}
+              </div>
             </div>
           </div>
         </div>
