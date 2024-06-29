@@ -1,0 +1,5 @@
+@font-face{
+  font-family: 'Overused Grotesk';
+  src: local('Overused Grotesk'),
+       url('./assets/fonts/overused_grotesk/ttf/OverusedGrotesk-Black.ttf') format('');
+}
