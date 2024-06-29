@@ -76,13 +76,13 @@ function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
     if (currentIndex + pageSize < dummydata.length) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + pageSize);
     }
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - pageSize);
     }
   };
   const displayedItems = dummydata.slice(currentIndex, currentIndex + pageSize);

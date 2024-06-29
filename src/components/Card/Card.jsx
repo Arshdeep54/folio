@@ -35,7 +35,7 @@ function Card(props) {
             : "0.125rem solid #f1f1f1",
           margin: cardHovered
             ? "0"
-            : "0.125rem 0.25rem 0.25rem 0.125rem",
+            : "0.125rem",
         }}
       >
         <div className="pfp_image_cont">
