@@ -68,7 +68,7 @@ function Card(props) {
               onMouseLeave={() => setPortHovered(false)}
               style={{
                 background: randomColor.bg,
-                boxShadow: `0px ${portHovered ? "3px" : "2px"} 0px 0px ${
+                boxShadow: `0${portHovered ? "3px" : "2px"} 0 0 ${
                   randomColor.shadow
                 }`,
                 border: portHovered && `1px solid ${randomColor.borderPort}`,

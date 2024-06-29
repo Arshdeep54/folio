@@ -71,7 +71,7 @@ function HomePage() {
       icon: null,
     },
   ];
-  const pageSize = 3;
+  const pageSize = window.matchMedia('(max-width:768px)').matches ? 2 : 3;;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
