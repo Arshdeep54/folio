@@ -100,11 +100,17 @@ function HomePage() {
       bg: "#E1F6D9", //green
       shadow: "#8DF26A",
     },
+    
+    {
+      border: "#CCE2FF",
+      borderPort: "#85A6E0",
+      bg: "#DBEAFE", //purple
+      shadow: "#85A6E0",
+    }
   ];
 
   return (
     <>
-      <NavBar />
       <Graphic />
       <div className="og_container">
         <div className="og_header_container">
