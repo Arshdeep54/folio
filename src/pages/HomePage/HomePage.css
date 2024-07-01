@@ -5,7 +5,14 @@
       format("truetype");
 }
 
+@font-face {
+  font-family: "Satoshi";
+  src: local("Satoshi"),
+    url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf")
+      format("opentype");
+}
 .og_container {
+  margin-top: 5.56rem;
   padding: 0 5.75rem;
   display: flex;
   flex-direction: column;
@@ -20,8 +27,8 @@
   margin-bottom: 2rem;
 }
 .og_title {
-  color: #141517;
-  font-family: "Overused Grotesk";
+  color: #2C2256;
+  font-family: "Satoshi";
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
@@ -71,8 +78,8 @@
   align-self: stretch;
 }
 .collection_header_text{
-  color: #141517;
-  font-family: "Overused Grotesk";
+  color: #2C2256;
+  font-family: "Satoshi";
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;

@@ -4,6 +4,12 @@
     url("../../assets/fonts/overused_grotesk/ttf/OverusedGrotesk-Medium.ttf")
       format("truetype");
 }
+@font-face {
+  font-family: "Satoshi";
+  src: local("Satoshi"),
+    url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf")
+      format("opentype");
+}
 
 .card {
   width: 31%;
@@ -129,7 +135,7 @@
 }
 .name_text {
   color: #141517;
-  font-family: "Overused Grotesk";
+  font-family: "Satoshi";
   font-size: 1.625rem;
   font-style: normal;
   font-weight: 600;
