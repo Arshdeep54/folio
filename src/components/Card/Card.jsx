@@ -27,10 +27,18 @@ function Card(props) {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0,y:100}}
-        whileInView={{ opacity: 1 ,y:0}}
-        viewport={{ once: true, amount: 0.5}}
-        transition={{ delay: 0.5 }}
+        initial={{
+          opacity: 0,
+          y: 100,
+          scale: 0.9,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ delay: 0.1 }}
         className="card"
         style={{
           padding: "0.25rem",

@@ -1,10 +1,8 @@
 @font-face {
-    font-family: "Satoshi";
-    src: local("Satoshi"),
-      url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf")
-        format("opentype");
-  }
-  
+  font-family: "Satoshi";
+  src: local("Satoshi"),
+    url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf") format("opentype");
+}
 
 .graphic {
   margin-top: 5.3rem;
@@ -31,11 +29,11 @@
     108.573% no-repeat;
 }
 .image_right {
-  width: 17.478rem;
-  height: 24.5625rem;
+  width: 20.6875rem;
+  height: 29.5625rem;
   flex-shrink: 0;
-  background: url("../../assets/graphic.png") transparent -659.751px -0.049px /
-    335.922% 100.025% no-repeat;
+  background: url("../../assets/graphic.png") transparent -659.751px -1.049px /
+    301.922% 100.025% no-repeat;
 }
 .graphic_content {
   display: flex;
@@ -88,7 +86,7 @@
   border-radius: 0.75rem;
   background: #dbeafe;
   box-shadow: 0px 4px 0px 0px #577cbe;
-  transition: box-shadow 0.2s ease-in-out,border 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 .spotlight_cont:hover {
   border: 1px solid #577cbe;
