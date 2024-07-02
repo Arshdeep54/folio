@@ -41,7 +41,7 @@ function Card(props) {
         transition={{ delay: 0.1 }}
         className="card"
         style={{
-          padding: "0.25rem",
+          padding: "0.3rem",
         }}
       >
         <div
@@ -52,8 +52,7 @@ function Card(props) {
             border: cardHovered
               ? `0.25rem solid ${randomColor.border}`
               : "0.125rem solid #f1f1f1",
-            margin: cardHovered ? 0 : "0.125rem",
-            transition: "border 0.01s ease-in-out, margin 0.01s ease-in-out ",
+            transition: "border 0.1s ease-in-out",
           }}
         >
           <div className="pfp_image_cont">
