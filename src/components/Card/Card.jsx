@@ -8,6 +8,7 @@ import ArrowRight from "../Svgs/ArrowRight";
 import MicrosoftSvgHovered from "../Svgs/MicrosoftSvgHovered";
 import MetaSvgHovered from "../Svgs/MetaSvgHovered";
 import ArrowUp from "../Svgs/ArrowUp";
+import { motion } from "framer-motion";
 function Card(props) {
   const {
     id,
@@ -25,7 +26,11 @@ function Card(props) {
   const [portHovered, setPortHovered] = useState(false);
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0,y:100}}
+        whileInView={{ opacity: 1 ,y:0}}
+        viewport={{ once: true, amount: 0.5}}
+        transition={{ delay: 0.5 }}
         className="card"
         style={{
           padding: "0.25rem",
@@ -40,9 +45,7 @@ function Card(props) {
               ? `0.25rem solid ${randomColor.border}`
               : "0.125rem solid #f1f1f1",
             margin: cardHovered ? 0 : "0.125rem",
-            transition: 'border 0.01s ease-in-out, margin 0.01s ease-in-out '
- 
-
+            transition: "border 0.01s ease-in-out, margin 0.01s ease-in-out ",
           }}
         >
           <div className="pfp_image_cont">
@@ -50,7 +53,7 @@ function Card(props) {
           </div>
           <div className="empty_container"></div>
           <div className="content_container">
-            <div className="content_left" >
+            <div className="content_left">
               <div className="name_container">
                 <div className="name_text">{name}</div>
                 <div className="designation_text">{designation}</div>
@@ -106,7 +109,7 @@ function Card(props) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
