@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./Card.css";
 import pfpImage from "../../assets/pfp_demo.png";
-import RectangleSvg from "../Svgs/RectangleSvg";
 import MicrosoftSvg from "../Svgs/MicrosoftSvg";
 import MetaSvg from "../Svgs/MetaSvg";
 import ArrowRight from "../Svgs/ArrowRight";
 import MicrosoftSvgHovered from "../Svgs/MicrosoftSvgHovered";
 import MetaSvgHovered from "../Svgs/MetaSvgHovered";
-import ArrowUp from "../Svgs/ArrowUp";
 import { motion } from "framer-motion";
 function Card(props) {
   const {
@@ -19,6 +17,8 @@ function Card(props) {
     pfpImageUrl,
     icon,
     randomColor,
+    horizontal,
+    containerSize
   } = props;
   const [hoverIcon1, setHoverIcon1] = useState(false);
   const [hoverIcon2, setHoverIcon2] = useState(false);
@@ -37,11 +37,12 @@ function Card(props) {
           y: 0,
           scale: 1,
         }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ delay: 0.1 }}
+        viewport={{ once: true, amount: horizontal ? 0.1 : 0.5 }}
+        transition={{ delay: 0.2, ease: "easeIn" }}
         className="card"
         style={{
           padding: "0.3rem",
+          width: horizontal ?  `${31/containerSize}%` : "31%",
         }}
       >
         <div
@@ -79,22 +80,30 @@ function Card(props) {
                   {hoverIcon2 ? <MetaSvgHovered /> : <MetaSvg />}
                 </div>
               </div>
-              <div
-                className="portfolio_container"
-                onMouseEnter={() => setPortHovered(true)}
-                onMouseLeave={() => setPortHovered(false)}
-                style={{
-                  background: randomColor.bg,
-                  boxShadow: `0 ${portHovered ? "3px" : "2px"} 0 0 ${
-                    randomColor.shadow
-                  }`,
-                  border: portHovered && `1px solid ${randomColor.borderPort}`,
-                  borderRadius: "0.375rem",
-                }}
+              <motion.div
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 0.95 }}
+                transition={{ duration: 1, type: "spring" }}
+                className="portfolio"
               >
-                <ArrowRight portHovered={portHovered} />
-                <div className="portfolio_text">Visit Portfolio</div>
-              </div>
+                <div
+                  className="portfolio_container"
+                  onMouseEnter={() => setPortHovered(true)}
+                  onMouseLeave={() => setPortHovered(false)}
+                  style={{
+                    background: randomColor.bg,
+                    boxShadow: `0 ${portHovered ? "3px" : "2px"} 0 0 ${
+                      randomColor.shadow
+                    }`,
+                    border:
+                      portHovered && `1px solid ${randomColor.borderPort}`,
+                    borderRadius: "0.375rem",
+                  }}
+                >
+                  <ArrowRight portHovered={portHovered} />
+                  <div className="portfolio_text">Visit Portfolio</div>
+                </div>
+              </motion.div>
             </div>
             <div className="content_right">
               <div className="content_right_top">

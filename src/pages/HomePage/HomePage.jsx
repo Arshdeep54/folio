@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
-import NavBar from "../../components/Navbar/NavBar";
+import React, { useEffect, useRef, useState } from "react";
 import Graphic from "../../components/Graphic/Graphic";
 import "./HomePage.css";
 import CaretLeft from "../../components/Svgs/CaretLeft";
 import CaretRight from "../../components/Svgs/CaretRight";
 import Card from "../../components/Card/Card";
+import { motion, useAnimationControls } from "framer-motion";
+
 function HomePage() {
+  const controls = useAnimationControls();
   const dummydata = [
     {
       id: 0,
@@ -70,22 +72,54 @@ function HomePage() {
       pfpImageUrl: null, //for now null
       icon: null,
     },
+    {
+      id: 8,
+      name: "Astha Gill",
+      designation: "Senior Developer",
+      department: "Civil",
+      batch: 23,
+      pfpImageUrl: null, //for now null
+      icon: null,
+    },
+    {
+      id: 8,
+      name: "Astha Gill",
+      designation: "Senior Developer",
+      department: "Civil",
+      batch: 23,
+      pfpImageUrl: null, //for now null
+      icon: null,
+    },
   ];
   const pageSize = window.matchMedia("(max-width:768px)").matches ? 2 : 3;
-
+  const containerSize = Math.ceil(dummydata.length / pageSize);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+  const length = 1368;
+  useEffect(() => {
+    console.log({ currentIndex, currentX });
+  }, [currentIndex, currentX]);
   const handleNext = () => {
+    console.log(currentIndex);
     if (currentIndex + pageSize < dummydata.length) {
       setCurrentIndex(currentIndex + pageSize);
+      console.log(currentIndex);
+      controls.set("key2");
+      setCurrentX(currentX - length);
     }
   };
 
   const handlePrevious = () => {
+    console.log(currentIndex);
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - pageSize);
+      console.log("prev");
+      controls.set("key3");
+      setCurrentX(currentX + length);
     }
   };
-  const displayedItems = dummydata.slice(currentIndex, currentIndex + pageSize);
+  const displayedItems = dummydata.slice(0, containerSize * 3);
+  const cardContainerRef = useRef(null);
 
   const colors = [
     {
@@ -100,13 +134,13 @@ function HomePage() {
       bg: "#E1F6D9", //green
       shadow: "#8DF26A",
     },
-    
+
     {
       border: "#CCE2FF",
       borderPort: "#85A6E0",
       bg: "#DBEAFE", //purple
       shadow: "#85A6E0",
-    }
+    },
   ];
 
   return (
@@ -119,24 +153,45 @@ function HomePage() {
             <div className="arrows_sub_container">
               <div
                 className="arrow_container"
-                onClick={handlePrevious}
+                onClick={() => {
+                  handlePrevious();
+                }}
                 disabled={currentIndex === 0}
               >
                 <CaretLeft dark={currentIndex != 0} />
               </div>
               <div
                 className="arrow_container"
-                onClick={handleNext}
-                disabled={currentIndex === dummydata.length - pageSize}
+                onClick={() => {
+                  handleNext();
+                }}
+                disabled={currentIndex === dummydata.length-pageSize}
               >
-                <CaretRight
-                  dark={currentIndex < dummydata.length - pageSize}
-                />
+                <CaretRight dark={currentIndex < dummydata.length-pageSize} />
               </div>
             </div>
           </div>
         </div>
-        <div className="og_content_container">
+        <motion.div
+          ref={cardContainerRef}
+          className="og_content_container"
+          variants={{
+            initial: {
+              translateX: 0,
+            },
+            key2: {
+              translateX: currentX - length,
+            },
+            key3: {
+              translateX: currentX + length,
+            },
+          }}
+          animate={controls}
+          style={{
+            width: `${containerSize * 101}%`,
+            transition: "transform 0.6s easeinout",
+          }}
+        >
           {displayedItems.map((item, index) => {
             return (
               <Card
@@ -148,10 +203,12 @@ function HomePage() {
                 pfpImageUrl={item.pfpImageUrl}
                 icon={item.icon}
                 randomColor={colors[Math.floor(Math.random() * colors.length)]}
+                horizontal={true}
+                containerSize={containerSize}
               />
             );
           })}
-        </div>
+        </motion.div>
       </div>
       <div className="collection_container">
         <div className="collection_header">
@@ -169,6 +226,8 @@ function HomePage() {
                 pfpImageUrl={item.pfpImageUrl}
                 icon={item.icon}
                 randomColor={colors[Math.floor(Math.random() * colors.length)]}
+                horizontal={false}
+                containerSize={containerSize}
               />
             );
           })}

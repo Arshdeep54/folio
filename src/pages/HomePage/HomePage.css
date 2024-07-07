@@ -59,9 +59,9 @@
 
 .og_content_container {
   display: flex;
-  width: 100%;
   align-items: center;
   gap: 2rem;
+  transition:transform 0.6s ease-in-out;
 }
 .collection_container {
   padding: 0 5.75rem;
