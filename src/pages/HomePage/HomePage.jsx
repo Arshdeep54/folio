@@ -96,24 +96,17 @@ function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentX, setCurrentX] = useState(0);
   const length = 1368;
-  useEffect(() => {
-    console.log({ currentIndex, currentX });
-  }, [currentIndex, currentX]);
   const handleNext = () => {
-    console.log(currentIndex);
     if (currentIndex + pageSize < dummydata.length) {
       setCurrentIndex(currentIndex + pageSize);
-      console.log(currentIndex);
       controls.set("key2");
       setCurrentX(currentX - length);
     }
   };
 
   const handlePrevious = () => {
-    console.log(currentIndex);
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - pageSize);
-      console.log("prev");
       controls.set("key3");
       setCurrentX(currentX + length);
     }
