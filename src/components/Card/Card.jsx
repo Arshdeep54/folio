@@ -7,6 +7,7 @@ import ArrowRight from "../Svgs/ArrowRight";
 import MicrosoftSvgHovered from "../Svgs/MicrosoftSvgHovered";
 import MetaSvgHovered from "../Svgs/MetaSvgHovered";
 import { motion } from "framer-motion";
+import CardAnimation from "./CardAnimation";
 function Card(props) {
   const {
     id,
@@ -19,44 +20,16 @@ function Card(props) {
     randomColor,
     horizontal,
     containerSize,
-    pageSize
+    pageSize,
   } = props;
   const [hoverIcon1, setHoverIcon1] = useState(false);
   const [hoverIcon2, setHoverIcon2] = useState(false);
   const [cardHovered, setCardHovered] = useState(false);
   const [portHovered, setPortHovered] = useState(false);
-  console.log({pageSize},{containerSize});
-  const divisor=window.matchMedia(
-    "(min-width: 320px) and (max-width: 431px)"
-  ).matches
-    ? 30*9
-    : window.matchMedia("(max-width:768px)").matches
-    ? 31
-    : 31;
-    const collection=window.matchMedia(
-      "(min-width: 320px) and (max-width: 431px)"
-    ).matches?"95%":"31%"
+  
   return (
     <>
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 100,
-          scale: 0.9,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          scale: 1,
-        }}
-        viewport={{ once: true, amount: horizontal ? 0.1 : 0.5 }}
-        transition={{ delay: 0.2, ease: "easeIn" }}
-        className="card"
-        style={{
-          padding: containerSize==9?"0.3rem":0,
-          width: horizontal ? `${divisor/containerSize}%` : collection,
-        }}
-      >
+      <CardAnimation horizontal={horizontal} containerSize={containerSize}>
         <div
           className="card_container"
           onMouseEnter={() => setCardHovered(true)}
@@ -137,7 +110,7 @@ function Card(props) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </CardAnimation>
     </>
   );
 }

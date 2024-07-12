@@ -47,6 +47,7 @@
   flex-direction: row;
   gap: 0.5rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .arrow_container {
   display: flex;
@@ -54,6 +55,11 @@
   height: 2rem;
   justify-content: center;
   align-items: center;
+}
+.og_content {
+  width: 100%;
+  height: 24rem;
+
 }
 
 .og_content_container {
@@ -122,7 +128,7 @@
     height: 1rem;
   }
   .og_content_container {
-    gap: 1.5rem;
+    gap: 0rem;
   }
   .collection_container {
     padding: 0 1rem;
@@ -142,5 +148,17 @@
   }
   .collection_content {
     gap: 1.75rem;
+  }
+  .og_content {
+    width: 100%;
+    height: 24rem;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .og_content::-webkit-scrollbar{
+    background-color: transparent;
   }
 }

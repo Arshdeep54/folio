@@ -100,13 +100,12 @@ function HomePage() {
     ? 2
     : 3;
   const containerSize = Math.ceil(dummydata.length / pageSize);
-  console.log({containerSize});
+  console.log({ containerSize });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentX, setCurrentX] = useState(0);
-  const length =  window.matchMedia(
-    "(min-width: 320px) and (max-width: 431px)"
-  ).matches
-    ? window.innerWidth*0.95
+  const length = window.matchMedia("(min-width: 320px) and (max-width: 431px)")
+    .matches
+    ? window.innerWidth * 0.94
     : window.matchMedia("(max-width:768px)").matches
     ? 2
     : 1368;
@@ -179,45 +178,51 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <motion.div
-          ref={cardContainerRef}
-          className="og_content_container"
-          variants={{
-            initial: {
-              translateX: 0,
-            },
-            key2: {
-              translateX: currentX - length,
-            },
-            key3: {
-              translateX: currentX + length,
-            },
-          }}
-          animate={controls}
-          style={{
-            width: `${containerSize * 101}%`,
-            transition: "transform 0.6s easeinout",
-            // overflowX:"hidden"
-          }}
-        >
-          {displayedItems.map((item, index) => {
-            return (
-              <Card
-                id={item.id}
-                name={item.name}
-                designation={item.designation}
-                department={item.department}
-                batch={item.batch}
-                pfpImageUrl={item.pfpImageUrl}
-                icon={item.icon}
-                randomColor={colors[Math.floor(Math.random() * colors.length)]}
-                horizontal={true}
-                containerSize={containerSize}
-                pageSize={pageSize}
-              />
-            );
-          })}
-        </motion.div>
+        <div className="og_content">
+          <motion.div
+            ref={cardContainerRef}
+            className="og_content_container"
+            variants={{
+              initial: {
+                translateX: 0,
+              },
+              key2: {
+                translateX: currentX - length,
+              },
+              key3: {
+                translateX: currentX + length,
+              },
+            }}
+            animate={controls}
+            style={{
+              width:`${containerSize * 100}%`,
+                // !window.matchMedia("(min-width: 320px) and (max-width: 431px)")
+                //   .matches && `${containerSize * 100}%`,
+              transition: "transform 0.6s easeinout",
+              // overflowX:"hidden"
+            }}
+          >
+            {displayedItems.map((item, index) => {
+              return (
+                <Card
+                  id={item.id}
+                  name={item.name}
+                  designation={item.designation}
+                  department={item.department}
+                  batch={item.batch}
+                  pfpImageUrl={item.pfpImageUrl}
+                  icon={item.icon}
+                  randomColor={
+                    colors[Math.floor(Math.random() * colors.length)]
+                  }
+                  horizontal={true}
+                  containerSize={containerSize}
+                  pageSize={pageSize}
+                />
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
       <div className="collection_container">
         <div className="collection_header">
@@ -238,7 +243,6 @@ function HomePage() {
                 horizontal={false}
                 containerSize={containerSize}
                 pageSize={pageSize}
-
               />
             );
           })}
