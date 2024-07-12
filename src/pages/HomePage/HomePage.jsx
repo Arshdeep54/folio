@@ -93,7 +93,7 @@ function HomePage() {
   ];
 
   const pageSize = window.matchMedia(
-    "(min-width: 320px) and (max-width: 376px)"
+    "(min-width: 320px) and (max-width: 431px)"
   ).matches
     ? 1
     : window.matchMedia("(max-width:768px)").matches
@@ -104,9 +104,9 @@ function HomePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentX, setCurrentX] = useState(0);
   const length =  window.matchMedia(
-    "(min-width: 320px) and (max-width: 376px)"
+    "(min-width: 320px) and (max-width: 431px)"
   ).matches
-    ? 372
+    ? window.innerWidth*0.95
     : window.matchMedia("(max-width:768px)").matches
     ? 2
     : 1368;
@@ -197,6 +197,7 @@ function HomePage() {
           style={{
             width: `${containerSize * 101}%`,
             transition: "transform 0.6s easeinout",
+            // overflowX:"hidden"
           }}
         >
           {displayedItems.map((item, index) => {

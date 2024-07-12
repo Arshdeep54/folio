@@ -25,16 +25,16 @@ function Card(props) {
   const [hoverIcon2, setHoverIcon2] = useState(false);
   const [cardHovered, setCardHovered] = useState(false);
   const [portHovered, setPortHovered] = useState(false);
-  console.log(pageSize===1);
+  console.log({pageSize},{containerSize});
   const divisor=window.matchMedia(
-    "(min-width: 320px) and (max-width: 376px)"
+    "(min-width: 320px) and (max-width: 431px)"
   ).matches
     ? 30*9
     : window.matchMedia("(max-width:768px)").matches
     ? 31
     : 31;
     const collection=window.matchMedia(
-      "(min-width: 320px) and (max-width: 376px)"
+      "(min-width: 320px) and (max-width: 431px)"
     ).matches?"95%":"31%"
   return (
     <>
@@ -49,11 +49,11 @@ function Card(props) {
           y: 0,
           scale: 1,
         }}
-        viewport={{ once: true, amount: horizontal ? 0.5 : 0.5 }}
+        viewport={{ once: true, amount: horizontal ? 0.1 : 0.5 }}
         transition={{ delay: 0.2, ease: "easeIn" }}
         className="card"
         style={{
-          padding: "0.3rem",
+          padding: containerSize==9?"0.3rem":0,
           width: horizontal ? `${divisor/containerSize}%` : collection,
         }}
       >
