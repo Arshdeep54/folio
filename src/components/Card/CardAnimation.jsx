@@ -2,19 +2,19 @@ import React, { Children } from "react";
 import { motion } from "framer-motion";
 
 function CardAnimation({ children, horizontal, containerSize }) {
-  const divisor = window.matchMedia("(min-width: 320px) and (max-width: 431px)")
+  const divisor = window.matchMedia("(min-width: 320px) and (max-width: 640px)")
     .matches
     ? 100 * 9
     : window.matchMedia("(max-width:768px)").matches
     ? 31
     : 31;
   const collection = window.matchMedia(
-    "(min-width: 320px) and (max-width: 431px)"
+    "(min-width: 320px) and (max-width: 640px)"
   ).matches
     ? "95%"
     : "31%";
   const noAnimation = window.matchMedia(
-    "(min-width: 320px) and (max-width: 431px)"
+    "(min-width: 320px) and (max-width: 640px)"
   ).matches;
   if (!noAnimation || !horizontal) {
     return (

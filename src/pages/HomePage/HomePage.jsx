@@ -93,7 +93,7 @@ function HomePage() {
   ];
 
   const pageSize = window.matchMedia(
-    "(min-width: 320px) and (max-width: 431px)"
+    "(min-width: 320px) and (max-width: 640px)"
   ).matches
     ? 1
     : window.matchMedia("(max-width:768px)").matches
@@ -103,7 +103,7 @@ function HomePage() {
   console.log({ containerSize });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentX, setCurrentX] = useState(0);
-  const length = window.matchMedia("(min-width: 320px) and (max-width: 431px)")
+  const length = window.matchMedia("(min-width: 320px) and (max-width: 640px)")
     .matches
     ? window.innerWidth * 0.94
     : window.matchMedia("(max-width:768px)").matches
@@ -196,7 +196,7 @@ function HomePage() {
             animate={controls}
             style={{
               width:`${containerSize * 100}%`,
-                // !window.matchMedia("(min-width: 320px) and (max-width: 431px)")
+                // !window.matchMedia("(min-width: 320px) and (max-width: 640px)")
                 //   .matches && `${containerSize * 100}%`,
               transition: "transform 0.6s easeinout",
               // overflowX:"hidden"
