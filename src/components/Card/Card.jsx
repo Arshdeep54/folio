@@ -18,12 +18,24 @@ function Card(props) {
     icon,
     randomColor,
     horizontal,
-    containerSize
+    containerSize,
+    pageSize
   } = props;
   const [hoverIcon1, setHoverIcon1] = useState(false);
   const [hoverIcon2, setHoverIcon2] = useState(false);
   const [cardHovered, setCardHovered] = useState(false);
   const [portHovered, setPortHovered] = useState(false);
+  console.log(pageSize===1);
+  const divisor=window.matchMedia(
+    "(min-width: 320px) and (max-width: 376px)"
+  ).matches
+    ? 30*9
+    : window.matchMedia("(max-width:768px)").matches
+    ? 31
+    : 31;
+    const collection=window.matchMedia(
+      "(min-width: 320px) and (max-width: 376px)"
+    ).matches?"95%":"31%"
   return (
     <>
       <motion.div
@@ -37,12 +49,12 @@ function Card(props) {
           y: 0,
           scale: 1,
         }}
-        viewport={{ once: true, amount: horizontal ? 0.1 : 0.5 }}
+        viewport={{ once: true, amount: horizontal ? 0.5 : 0.5 }}
         transition={{ delay: 0.2, ease: "easeIn" }}
         className="card"
         style={{
           padding: "0.3rem",
-          width: horizontal ?  `${31/containerSize}%` : "31%",
+          width: horizontal ? `${divisor/containerSize}%` : collection,
         }}
       >
         <div

@@ -5,7 +5,7 @@ function Graphic() {
   return (
     <>
       <div className="graphic">
-      <div className="graphic_content">
+        <div className="graphic_content">
           <div className="graphic_text_container">
             <div className="text_one">
               Showcasing the design ecosystem of IIT-R
@@ -20,7 +20,6 @@ function Graphic() {
           <div className="image_left"></div>
           <div className="image_right"></div>
         </div>
-        
       </div>
       <div className="elipse_left"></div>
       <div className="elipse_right"></div>

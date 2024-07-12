@@ -8,8 +8,7 @@
 @font-face {
   font-family: "Satoshi";
   src: local("Satoshi"),
-    url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf")
-      format("opentype");
+    url("../../assets/fonts/Satoshi/OTF/Satoshi-Medium.otf") format("opentype");
 }
 .og_container {
   margin-top: 5.56rem;
@@ -27,7 +26,7 @@
   margin-bottom: 2rem;
 }
 .og_title {
-  color: #2C2256;
+  color: #2c2256;
   font-family: "Satoshi";
   font-size: 2rem;
   font-style: normal;
@@ -61,7 +60,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  transition:transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
 }
 .collection_container {
   padding: 0 5.75rem;
@@ -76,8 +75,8 @@
   align-items: center;
   align-self: stretch;
 }
-.collection_header_text{
-  color: #2C2256;
+.collection_header_text {
+  color: #2c2256;
   font-family: "Satoshi";
   font-size: 2rem;
   font-style: normal;
@@ -85,12 +84,63 @@
   line-height: normal;
   letter-spacing: -0.04rem;
 }
-.collection_content{
+.collection_content {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
   align-self: stretch;
   flex-wrap: wrap;
   width: fit-content;
-  margin: 0 auto; 
+  margin: 0 auto;
+}
+@media only screen and (min-width: 320px) and (max-width: 376px) {
+  .og_container {
+    margin-top: 2.19rem;
+    padding: 0 1rem;
+    margin-bottom: 3.75rem;
+  }
+  .og_header_container {
+    margin-bottom: 1.75rem;
+  }
+  .og_title {
+    font-size: 1.25rem;
+    letter-spacing: -0.025rem;
+  }
+  .arrows_container {
+    padding: 0.25rem 0.375rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 0.5px solid #f0f0f0;
+  }
+  .arrows_sub_container {
+    gap: 0.25rem;
+  }
+  .arrow_container {
+    width: 1rem;
+    height: 1rem;
+  }
+  .og_content_container {
+    gap: 1.5rem;
+  }
+  .collection_container {
+    padding: 0 1rem;
+    gap: 1.75rem;
+  }
+  .collection_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+  .collection_header_text {
+    color: #2c2256;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025rem;
+  }
+  .collection_content {
+    gap: 1.75rem;
+  }
 }

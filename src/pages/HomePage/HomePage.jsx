@@ -91,11 +91,25 @@ function HomePage() {
       icon: null,
     },
   ];
-  const pageSize = window.matchMedia("(max-width:768px)").matches ? 2 : 3;
+
+  const pageSize = window.matchMedia(
+    "(min-width: 320px) and (max-width: 376px)"
+  ).matches
+    ? 1
+    : window.matchMedia("(max-width:768px)").matches
+    ? 2
+    : 3;
   const containerSize = Math.ceil(dummydata.length / pageSize);
+  console.log({containerSize});
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentX, setCurrentX] = useState(0);
-  const length = 1368;
+  const length =  window.matchMedia(
+    "(min-width: 320px) and (max-width: 376px)"
+  ).matches
+    ? 372
+    : window.matchMedia("(max-width:768px)").matches
+    ? 2
+    : 1368;
   const handleNext = () => {
     if (currentIndex + pageSize < dummydata.length) {
       setCurrentIndex(currentIndex + pageSize);
@@ -158,9 +172,9 @@ function HomePage() {
                 onClick={() => {
                   handleNext();
                 }}
-                disabled={currentIndex === dummydata.length-pageSize}
+                disabled={currentIndex === dummydata.length - pageSize}
               >
-                <CaretRight dark={currentIndex < dummydata.length-pageSize} />
+                <CaretRight dark={currentIndex < dummydata.length - pageSize} />
               </div>
             </div>
           </div>
@@ -198,6 +212,7 @@ function HomePage() {
                 randomColor={colors[Math.floor(Math.random() * colors.length)]}
                 horizontal={true}
                 containerSize={containerSize}
+                pageSize={pageSize}
               />
             );
           })}
@@ -221,6 +236,8 @@ function HomePage() {
                 randomColor={colors[Math.floor(Math.random() * colors.length)]}
                 horizontal={false}
                 containerSize={containerSize}
+                pageSize={pageSize}
+
               />
             );
           })}
