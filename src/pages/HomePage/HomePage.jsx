@@ -204,7 +204,7 @@ function HomePage() {
               width: window.matchMedia(
                 "(min-width: 320px) and (max-width: 640px)"
               ).matches
-                ? `${containerSize * 92}%`
+                ? `${containerSize * 85}%`
                 : `${containerSize * 100}%`,
               // !window.matchMedia("(min-width: 320px) and (max-width: 640px)")
               //   .matches && `${containerSize * 100}%`,

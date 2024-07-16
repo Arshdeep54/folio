@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function CardAnimation({ children, horizontal, containerSize }) {
   const divisor = window.matchMedia("(min-width: 320px) and (max-width: 640px)")
     .matches
-    ? 100 * 9
+    ? 85 * 9
     : window.matchMedia("(max-width:768px)").matches
     ? 31
     : 31;
