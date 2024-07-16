@@ -151,7 +151,13 @@ function HomePage() {
 
   return (
     <>
-      <Graphic />
+      <Graphic
+        mode={
+          window.matchMedia("(min-width: 320px) and (max-width: 640px)").matches
+            ? "mobile"
+            : "desktop"
+        }
+      />
       <div className="og_container">
         <div className="og_header_container">
           <div className="og_title">The OGs</div>
@@ -195,9 +201,13 @@ function HomePage() {
             }}
             animate={controls}
             style={{
-              width:`${containerSize * 100}%`,
-                // !window.matchMedia("(min-width: 320px) and (max-width: 640px)")
-                //   .matches && `${containerSize * 100}%`,
+              width: window.matchMedia(
+                "(min-width: 320px) and (max-width: 640px)"
+              ).matches
+                ? `${containerSize * 92}%`
+                : `${containerSize * 100}%`,
+              // !window.matchMedia("(min-width: 320px) and (max-width: 640px)")
+              //   .matches && `${containerSize * 100}%`,
               transition: "transform 0.6s easeinout",
               // overflowX:"hidden"
             }}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Graphic.css";
 import GraphicPng from "../../assets/graphic.png";
-function Graphic() {
+function Graphic({ mode }) {
   return (
     <>
       <div className="graphic">
@@ -16,10 +16,18 @@ function Graphic() {
             <div className="spotlight_text">Get Spotlighted</div>
           </div>
         </div>
-        <div className="images_container">
-          <div className="image_left"></div>
-          <div className="image_right"></div>
-        </div>
+        {mode == "mobile" && (
+          <div className="images_container_mobile">
+            <div className="image_top"></div>
+            <div className="image_bottom"></div>
+          </div>
+        )}
+        {mode == "desktop" && (
+          <div className="images_container">
+            <div className="image_left"></div>
+            <div className="image_right"></div>
+          </div>
+        )}
       </div>
       <div className="elipse_left"></div>
       <div className="elipse_right"></div>
